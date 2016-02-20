@@ -21,6 +21,10 @@ Before do | scenario |
     :name => "#{scenario.feature.name} - #{scenario.name}"
   }
 
+  tunnelIdentifier = ENV['TUNNEL_IDENTIFIER']
+
+  capabilities_config.merge!({ 'tunnelIdentifier' =>  tunnelIdentifier}) if not tunnelIdentifier.nil?
+
   url = "http://#{ENV['SAUCE_USERNAME']}:#{ENV['SAUCE_ACCESS_KEY']}@ondemand.saucelabs.com:80/wd/hub".strip
 
   client = Selenium::WebDriver::Remote::Http::Default.new
