@@ -5,6 +5,7 @@ before_install:
 - export | grep SAUCE_
 env:
   global:
+  - BUILD_TAG=$TRAVIS_REPO_SLUG+$TRAVIS_BUILD_NUMBER
   - SAUCE_USERNAME=sauce_examples
 addons:
   jwt:
