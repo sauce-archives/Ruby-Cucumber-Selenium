@@ -7,7 +7,7 @@ node('docker') {
     sauce('saucelabs') {
       sauceconnect(useGeneratedTunnelIdentifier: true, verboseLogging: true) {
         withEnv(['HOME=$WORKSPACE']) {
-          docker.image('ruby:2.1').inside {
+          docker.image('ruby:2.2').inside {
             sh '
             gem install bundler
             bundle install
@@ -19,4 +19,3 @@ node('docker') {
     }
   }
 }
-0
