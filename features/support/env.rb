@@ -7,7 +7,8 @@ Before do | scenario |
   capabilities_config = {
     :version => "#{ENV['version']}",
     :platform => "#{ENV['platform']}",
-    :name => "#{scenario.feature.name} - #{scenario.name}"
+    :name => "#{scenario.feature.name} - #{scenario.name}",
+    :build => "#{ENV['JENKINS_BUILD_NUMBER'] || ENV['SAUCE_BAMBOO_BUILDNUMBER'] || ENV['SAUCE_TC_BUILDNUMBER'] || ENV['SAUCE_BUILD_NAME']}"
   }
   capabilities = Selenium::WebDriver::Remote::Capabilities.send(ENV['browserName'].to_sym, capabilities_config)
 
